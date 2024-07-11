@@ -33,14 +33,14 @@ public class BaseClass
     public File_Utility fLib = new File_Utility();
     public DataBase_Utility dLib= new DataBase_Utility();
     
-	@BeforeSuite(groups = { "smokeTest","regressionTest"})
+	@BeforeSuite//(groups = { "smokeTest","regressionTest"})
 	public void beforeSuite() throws SQLException
 	{
 		dLib.databaseconnection();
 		System.out.println("connection established with server");
 	}
 	
-	@BeforeTest(groups = { "smokeTest","regressionTest"})
+	@BeforeTest//(groups = { "smokeTest","regressionTest"})
 	public void beforeTest()
 	{
 		System.out.println("connection established with db");
@@ -72,7 +72,7 @@ public class BaseClass
 	}*/
 	
 	 
-	@BeforeClass(groups = { "smokeTest","regressionTest"})
+	@BeforeClass//(groups = { "smokeTest","regressionTest"})
 	public void beforeClass( ) throws IOException
 	{
 	 
@@ -98,7 +98,7 @@ public class BaseClass
 	}
 	
 	
-	@BeforeMethod(groups = { "smokeTest","regressionTest"})
+	@BeforeMethod//(groups = { "smokeTest","regressionTest"})
 	public void beforeMethod() throws Throwable
 	{
 		 
@@ -117,7 +117,7 @@ public class BaseClass
 		System.out.println("logged in");
 	}
 	
-	@AfterMethod(groups = { "smokeTest","regressionTest"})
+	@AfterMethod//(groups = { "smokeTest","regressionTest"})
 	public void afterMethod()
 	{
 		HomePage homePage = new HomePage(driver);
@@ -125,21 +125,21 @@ public class BaseClass
 		System.out.println("logged out");
 	}
 	
-	@AfterClass(groups = { "smokeTest","regressionTest"})
+	@AfterClass//(groups = { "smokeTest","regressionTest"})
 	public void afterClass()
 	{
 		driver.quit();
 		System.out.println("browser closed");
 	}
 	
-	@AfterTest(groups = { "smokeTest","regressionTest"})
+	@AfterTest//(groups = { "smokeTest","regressionTest"})
 	public void afterTest() throws SQLException
 	{
 		dLib.databaseClose();
 		System.out.println("disconnected with db");
 	}
 	
-	@AfterSuite(groups = { "smokeTest","regressionTest"})
+	@AfterSuite//(groups = { "smokeTest","regressionTest"})
 	public void afterSuite()
 	{
 		System.out.println("disconnected with server");
